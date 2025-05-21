@@ -2,7 +2,7 @@
   "name": "preview-serve",
   "type": "module",
   "packageManager": "pnpm@10.11.0",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "前端界面预览服务",
   "license": "MIT",
   "files": [
