@@ -5,3 +5,4 @@ node_modules
 dist
 .turbo
 .pnpm-debug.log
+/preview.config.ts

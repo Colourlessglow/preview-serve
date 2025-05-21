@@ -14,7 +14,7 @@ export const ci = () => {
     args: {
       dist: {
         type: 'positional',
-        description: '网页包路径',
+        description: 'web打包路径',
         valueHint: 'dist',
         required: false,
       },

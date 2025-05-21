@@ -1,7 +1,5 @@
 # preview-serve
 
-前端界面预览服务
-
 <!-- automd:badges color="green" license licenseBranch  bundlephobia packagephobia -->
 
 [![npm version](https://img.shields.io/npm/v/preview-serve?color=green)](https://npmjs.com/package/preview-serve)
@@ -11,6 +9,8 @@
 [![license](https://img.shields.io/github/license/Colourlessglow/preview-serve?color=green)](https://github.com/Colourlessglow/preview-serve/blob/true/LICENSE)
 
 <!-- /automd -->
+
+web打包目录预览服务
 
 ## 安装
 
@@ -37,6 +37,47 @@ deno install preview-serve
 ```
 
 <!-- /automd -->
+
+## 配置
+
+```ts
+import { defineConfig } from 'preview-serve'
+
+export default defineConfig({
+  /**
+   * 服务监听地址
+   */
+  hostname: '127.0.0.1',
+  /**
+   * 服务监听端口
+   */
+  port: 3000,
+  /**
+   * 服务基础路径
+   */
+  base: '/',
+  /**
+   * web 打包目录
+   */
+  dist: 'dist',
+  proxy: {
+    /**
+     * 代理配置，详见 [httpxy](https://github.com/unjs/httpxy)
+     */
+    '/gh': {
+      target: ' https://ungh.cc',
+      changeOrigin: true,
+    }
+  }
+})
+```
+
+## 命令
+
+```sh
+preview-serve --dist dist --base /
+```
+
 
 ## 贡献者
 <!-- automd:contributors author="Colourlessglow" license="MIT" -->

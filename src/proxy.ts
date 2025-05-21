@@ -8,7 +8,7 @@ const addProxy = (app: App, name: string, option: ProxyServerOptions) => {
     eventHandler(async (event) => {
       try {
         await proxy.web(event.node.req, event.node.res)
-      } catch (error) {
+      } catch (error: any) {
         if (error?.code !== 'ECONNRESET') {
           throw error
         }

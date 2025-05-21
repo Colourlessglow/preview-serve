@@ -1,4 +1,4 @@
-import consola from 'consola'
+import { consola } from 'consola'
 import { colors } from 'consola/utils'
 import { loadConfig as loadConfig$1 } from 'esconf'
 import { presetMini } from 'esconf/preset-mini'

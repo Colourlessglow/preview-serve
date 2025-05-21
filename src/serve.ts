@@ -1,4 +1,4 @@
-import consola2 from 'consola'
+import { consola } from 'consola'
 import { colors } from 'consola/utils'
 import { type App, createApp, getRequestURL, toNodeListener } from 'h3'
 import { type Listener, listen } from 'listhen'
@@ -22,14 +22,14 @@ export class PreviewServer {
     this.#app = createApp({
       onRequest(event) {
         const url = getRequestURL(event)
-        consola2.log(
+        consola.log(
           colors.bgBlueBright(colors.green(` ${event.method} `)),
           colors.bold(colors.gray(url.toString())),
           '\n'
         )
       },
       onError(error) {
-        consola2.error(error)
+        consola.error(error)
       },
     })
     batchAddProxy(this.#app, this.#options.proxy)
