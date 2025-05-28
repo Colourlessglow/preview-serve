@@ -7,7 +7,7 @@ import type { Options, ResolveOptions } from './types'
 
 export const defineConfig = (options?: Options): Options => options || {}
 
-export const loadConfig = async () => {
+export const loadConfig = async (): Promise<Options> => {
   const { config, layers } = await loadConfig$1<Options>({
     presets: [presetMini({ name: 'preview', configName: 'config' })],
     default: {},

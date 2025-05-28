@@ -39,17 +39,18 @@ export class PreviewServer {
    * 初始化
    * @returns
    */
-  async mounted() {
+  async mounted(): Promise<this> {
     this.#server = await listen(toNodeListener(this.#app), this.#options.server)
     return this
   }
   /**
    * 失活
    */
-  async unmounted() {
+  async unmounted(): Promise<void> {
     await this.#server?.close()
     this.#server = null
   }
 }
 
-export const createPreviewServer = (options?: Options) => new PreviewServer(options).mounted()
+export const createPreviewServer = (options?: Options): Promise<PreviewServer> =>
+  new PreviewServer(options).mounted()

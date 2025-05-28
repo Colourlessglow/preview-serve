@@ -1,10 +1,10 @@
 import { defineCommand, runMain } from 'citty'
 import defu from 'defu'
-import { description, name, version } from '../package.json'
+import { description, name, version } from '../package.json' with { type: 'json' }
 import { loadConfig } from './config'
 import { createPreviewServer } from './serve'
 
-export const ci = () => {
+export const ci = (): void => {
   const main = defineCommand({
     meta: {
       name,

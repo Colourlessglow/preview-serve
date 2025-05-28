@@ -51,7 +51,7 @@
     "pathe": "^2.0.3"
   },
   "devDependencies": {
-    "@types/node": "^22.15.21",
+    "@types/node": "^22.15.23",
     "@vill-v/bumpp-github": "^3.0.0",
     "@vill-v/eslint-config": "^3.3.1",
     "@vill-v/prettier-config": "^1.0.0",
@@ -60,7 +60,7 @@
     "eslint": "^9.27.0",
     "prettier": "^3.5.3",
     "publint": "^0.3.12",
-    "tsdown": "^0.12.1",
+    "tsdown": "^0.12.4",
     "typescript": "^5.8.3",
     "unplugin-unused": "^0.5.0"
   },
