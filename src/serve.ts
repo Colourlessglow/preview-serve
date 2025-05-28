@@ -7,6 +7,9 @@ import { batchAddProxy } from './proxy'
 import { addStatic } from './static'
 import type { Options, ResolveOptions } from './types'
 
+/**
+ * 预览服务
+ */
 export class PreviewServer {
   /**
    * node web 服务
@@ -16,7 +19,14 @@ export class PreviewServer {
    * h3 web app
    */
   #app: App
+  /**
+   * 解析后的配置项
+   */
   #options: ResolveOptions
+  /**
+   * 初始化
+   * @param options 配置项
+   */
   constructor(options?: Options) {
     this.#options = resolveOptions(options)
     this.#app = createApp({
@@ -52,5 +62,10 @@ export class PreviewServer {
   }
 }
 
+/**
+ * 创建预览服务
+ * @param options 配置项
+ * @returns
+ */
 export const createPreviewServer = (options?: Options): Promise<PreviewServer> =>
   new PreviewServer(options).mounted()

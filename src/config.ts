@@ -5,8 +5,15 @@ import { presetMini } from 'esconf/preset-mini'
 import { join } from 'pathe'
 import type { Options, ResolveOptions } from './types'
 
+/**
+ * 配置项帮助方案
+ * @param options 配置项
+ */
 export const defineConfig = (options?: Options): Options => options || {}
 
+/**
+ * 加载配置文件
+ */
 export const loadConfig = async (): Promise<Options> => {
   const { config, layers } = await loadConfig$1<Options>({
     presets: [presetMini({ name: 'preview', configName: 'config' })],

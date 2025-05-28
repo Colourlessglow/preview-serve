@@ -4,6 +4,9 @@ import { description, name, version } from '../package.json' with { type: 'json'
 import { loadConfig } from './config'
 import { createPreviewServer } from './serve'
 
+/**
+ * ci 命令
+ */
 export const ci = (): void => {
   const main = defineCommand({
     meta: {

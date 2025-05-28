@@ -5,6 +5,14 @@ import { join } from 'pathe'
 import mime from 'mime'
 import type { ResolveOptions } from './types'
 
+/**
+ * 静态文件服务
+ * @param event h3 event
+ * @param dist 静态文件路径
+ * @param file 文件映射
+ * @param fallthrough When set to true, the function will not throw 404 error when the asset meta is not found or meta validation failed
+ * @returns
+ */
 const serveStatic = (
   event: H3Event<EventHandlerRequest>,
   dist: string,
@@ -29,6 +37,11 @@ const serveStatic = (
   })
 }
 
+/**
+ * 新增静态文件服务
+ * @param app h3 应用
+ * @param options 解析后的配置项
+ */
 export const addStatic = (app: App, options: ResolveOptions) => {
   app.use(
     '/',
