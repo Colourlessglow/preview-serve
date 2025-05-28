@@ -10,6 +10,10 @@
 
 <!-- /automd -->
 
+[![JSR](https://jsr.io/badges/@colourlessglow/preview-serve)](https://jsr.io/@colourlessglow/preview-serve)
+[![JSR Score](https://jsr.io/badges/@colourlessglow/preview-serve/score)](https://jsr.io/@colourlessglow/preview-serve)
+[![JSR Scope](https://jsr.io/badges/@colourlessglow)](https://jsr.io/@colourlessglow)
+
 web打包目录预览服务
 
 ## 安装
