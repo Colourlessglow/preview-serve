@@ -1,5 +1,5 @@
 import type { TLSSocket } from 'node:tls'
-import { type H3, HTTPError, definePlugin, fromNodeHandler, withBase } from 'h3'
+import { type H3, type H3Plugin, HTTPError, definePlugin, fromNodeHandler, withBase } from 'h3'
 import { type ProxyServerOptions, createProxyServer } from 'httpxy'
 import { join } from 'pathe'
 import type { ResolveOptions } from '../types'
@@ -51,6 +51,8 @@ const addProxy = (app: H3, name: string, option: ProxyServerOptions) => {
  * 批量增加代理配置
  * @param options 代理配置
  */
-export const proxy = definePlugin<Pick<ResolveOptions, 'proxy'>>((h3, options) => {
+export const proxy: (options: Pick<ResolveOptions, 'proxy'>) => H3Plugin = definePlugin<
+  Pick<ResolveOptions, 'proxy'>
+>((h3, options) => {
   Object.entries(options.proxy).forEach(([name, proxy]) => addProxy(h3, name, proxy))
 })

@@ -1,5 +1,5 @@
 import { readFile, stat } from 'node:fs/promises'
-import type { H3Event } from 'h3'
+import type { H3Event, H3Plugin } from 'h3'
 import { definePlugin, serveStatic as serveStatic$2 } from 'h3'
 import mime from 'mime'
 import { join } from 'pathe'
@@ -41,7 +41,9 @@ const serveStatic$1 = (
  * 新增静态文件服务
  * @param options 解析后的配置项
  */
-export const serveStatic = definePlugin<Pick<ResolveOptions, 'dist'>>((h3, options) => {
+export const serveStatic: (options: Pick<ResolveOptions, 'dist'>) => H3Plugin = definePlugin<
+  Pick<ResolveOptions, 'dist'>
+>((h3, options) => {
   h3.use(async (event) => {
     const hasNormal = await serveStatic$1(event, options.dist, (id) => id, true)
     if (hasNormal) {
