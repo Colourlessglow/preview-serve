@@ -31,12 +31,10 @@ export const loadConfig = async (): Promise<Options> => {
 
 export const resolveOptions = (options?: Options): ResolveOptions => {
   const { cwd, dist, proxy, ...server } = options || {}
-  const _options = {
+  const _options: ResolveOptions = {
     cwd: cwd || process.cwd(),
     server: {
-      hostname: '0.0.0.0',
       port: process.env.PORT || 3000,
-      isProd: true,
       ...server,
     },
     proxy: {

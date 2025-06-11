@@ -29,7 +29,7 @@ export const ci = (): void => {
     },
     async run({ args }) {
       const config = await loadConfig()
-      await createPreviewServer(defu({ dist: args.dist, baseURL: args.baseURL }, config))
+      createPreviewServer(defu({ dist: args.dist, baseURL: args.baseURL }, config))
     },
   })
 

@@ -1,9 +1,9 @@
 import { readFile, stat } from 'node:fs/promises'
-import type { App, EventHandlerRequest, H3Event } from 'h3'
-import { eventHandler, serveStatic as serveStatic$1 } from 'h3'
-import { join } from 'pathe'
+import type { H3Event } from 'h3'
+import { definePlugin, serveStatic as serveStatic$2 } from 'h3'
 import mime from 'mime'
-import type { ResolveOptions } from './types'
+import { join } from 'pathe'
+import type { ResolveOptions } from '../types'
 
 /**
  * 静态文件服务
@@ -13,13 +13,13 @@ import type { ResolveOptions } from './types'
  * @param fallthrough When set to true, the function will not throw 404 error when the asset meta is not found or meta validation failed
  * @returns
  */
-const serveStatic = (
-  event: H3Event<EventHandlerRequest>,
+const serveStatic$1 = (
+  event: H3Event,
   dist: string,
   file?: (id: string) => string,
   fallthrough?: boolean
 ) => {
-  return serveStatic$1(event, {
+  return serveStatic$2(event, {
     getContents: (id) => readFile(join(dist, file ? file(id) : id)),
     getMeta: async (id) => {
       const name = join(dist, file ? file(id) : id)
@@ -39,22 +39,19 @@ const serveStatic = (
 
 /**
  * 新增静态文件服务
- * @param app h3 应用
  * @param options 解析后的配置项
  */
-export const addStatic = (app: App, options: ResolveOptions) => {
-  app.use(
-    '/',
-    eventHandler(async (event) => {
-      const hasNormal = await serveStatic(event, options.dist, (id) => id, true)
-      if (hasNormal) {
-        return
-      }
-      const hasHtml = await serveStatic(event, options.dist, (id) => id + '.html', true)
-      if (hasHtml) {
-        return
-      }
-      return serveStatic(event, options.dist, () => 'index.html')
-    })
-  )
-}
+export const serveStatic = definePlugin<Pick<ResolveOptions, 'dist'>>((h3, options) => {
+  h3.use(async (event) => {
+    const hasNormal = await serveStatic$1(event, options.dist, (id) => id, true)
+    if (hasNormal) {
+      return hasNormal
+    }
+    const hasHtml = await serveStatic$1(event, options.dist, (id) => id + '.html', true)
+    if (hasHtml) {
+      return hasHtml
+    }
+    const indexHtml = await serveStatic$1(event, options.dist, () => 'index.html')
+    return indexHtml
+  })
+})

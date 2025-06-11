@@ -1,7 +1,7 @@
 import { defineConfig } from 'tsdown'
 
 export default defineConfig({
-  entry: ['src/index.ts'],
+  entry: { index: 'src/index.ts', h3: 'src/h3/index.ts' },
   target: 'node20',
   dts: true,
   clean: true,
