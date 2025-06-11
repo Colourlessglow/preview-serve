@@ -1,6 +1,26 @@
 # Changelog
 
 
+## v0.1.0-beta.2
+
+[compare changes](https://github.com/Colourlessglow/preview-serve/compare/v0.1.0-beta.1...v0.1.0-beta.2)
+
+### 🚀 特性
+
+- ⚠️  删除 cli baseURL 选项 ([1320888](https://github.com/Colourlessglow/preview-serve/commit/1320888))
+
+### 🏡 框架
+
+- 更新类型声明 ([2e2609d](https://github.com/Colourlessglow/preview-serve/commit/2e2609d))
+
+#### 🚨 破坏性改动
+
+- ⚠️  删除 cli baseURL 选项 ([1320888](https://github.com/Colourlessglow/preview-serve/commit/1320888))
+
+### ❤️ 贡献者
+
+- Whitekite ([@Colourlessglow](https://github.com/Colourlessglow))
+
 ## v0.1.0-beta.1
 
 [compare changes](https://github.com/Colourlessglow/preview-serve/compare/v0.0.2...v0.1.0-beta.1)
