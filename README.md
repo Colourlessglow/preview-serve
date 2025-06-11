@@ -57,10 +57,6 @@ export default defineConfig({
    */
   port: 3000,
   /**
-   * 服务基础路径
-   */
-  base: '/',
-  /**
    * web 打包目录
    */
   dist: 'dist',
@@ -79,7 +75,7 @@ export default defineConfig({
 ## 命令
 
 ```sh
-preview-serve --dist dist --base /
+preview-serve --dist dist
 ```
 
 

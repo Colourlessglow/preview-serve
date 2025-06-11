@@ -21,15 +21,10 @@ export const ci = (): void => {
         valueHint: 'dist',
         required: false,
       },
-      baseURL: {
-        type: 'string',
-        description: '基础路径',
-        valueHint: '/',
-      },
     },
     async run({ args }) {
       const config = await loadConfig()
-      createPreviewServer(defu({ dist: args.dist, baseURL: args.baseURL }, config))
+      createPreviewServer(defu({ dist: args.dist }, config))
     },
   })
 
