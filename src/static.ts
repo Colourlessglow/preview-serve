@@ -2,7 +2,7 @@ import { readFile, stat } from 'node:fs/promises'
 import type { App, EventHandlerRequest, H3Event } from 'h3'
 import { eventHandler, serveStatic as serveStatic$1 } from 'h3'
 import { join } from 'pathe'
-import mime from 'mime'
+import { lookup as mime } from 'mrmime'
 import type { ResolveOptions } from './types'
 
 /**
@@ -30,7 +30,7 @@ const serveStatic = (
       return {
         size: stats.size,
         mtime: stats.mtimeMs,
-        type: mime.getType(name)!,
+        type: mime(name)!,
       }
     },
     fallthrough,
