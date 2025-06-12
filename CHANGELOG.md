@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.1.0-beta.3
+
+[compare changes](https://github.com/Colourlessglow/preview-serve/compare/v0.1.0-beta.2...v0.1.0-beta.3)
+
+### 🚀 特性
+
+- **dep:** Replace dep `mime` with `mrmime` for faster execution and smaller size ([4e512e8](https://github.com/Colourlessglow/preview-serve/commit/4e512e8))
+
+### ❤️ 贡献者
+
+- Whitekite ([@Colourlessglow](https://github.com/Colourlessglow))
+
 ## v0.1.0-beta.2
 
 [compare changes](https://github.com/Colourlessglow/preview-serve/compare/v0.1.0-beta.1...v0.1.0-beta.2)
